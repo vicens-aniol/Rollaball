@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3952131741094852223}
   - component: {fileID: 3952131741094852208}
   - component: {fileID: 1678090753686066364}
+  - component: {fileID: 4943989737134267909}
+  - component: {fileID: 1234805557357420850}
   m_Layer: 0
   m_Name: PickUp
   m_TagString: PickUp
@@ -125,3 +127,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4943989737134267909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3952131741094852209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce8121e3fdc746379d98d504d2b7020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupType: 0
+  effectDuration: 5
+  effectValue: 1
+--- !u!114 &1234805557357420850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3952131741094852209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657d9ffb4dd53473fa573eb0bd5cd911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreMaterial: {fileID: 2100000, guid: fde48d21f163f4a169383b711ef42688, type: 2}
+  speedMaterial: {fileID: 2100000, guid: 438c9893f77ca4ad78d578ba5b0f4d65, type: 2}
+  jumpMaterial: {fileID: 2100000, guid: 9181387e13e9942ed87ce22d038489d1, type: 2}
+  shieldMaterial: {fileID: 2100000, guid: 33b93ed123e884224828736e038bc700, type: 2}

@@ -14,21 +14,28 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
 
+    // Power-up states
+    private float originalSpeed;
+    private Coroutine currentPowerUpCoroutine;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
+        
+        // Store original values
+        originalSpeed = speed;
     }
 
     public void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
-
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
+
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
@@ -54,4 +61,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void AddScore(int points)
+    {
+        count += points;
+        SetCountText();
+    }
+
+    public void ApplySpeedBoost(float multiplier, float duration)
+    {
+        if (currentPowerUpCoroutine != null)
+        {
+            StopCoroutine(currentPowerUpCoroutine);
+        }
+        currentPowerUpCoroutine = StartCoroutine(SpeedBoostCoroutine(multiplier, duration));
+    }
+
+    private IEnumerator SpeedBoostCoroutine(float multiplier, float duration)
+    {
+        speed *= multiplier;
+        yield return new WaitForSeconds(duration);
+        speed = originalSpeed;
+    }
 }
